@@ -32,13 +32,21 @@ public class EmployeeService {
         emp.setDepartment(dept);
         return employeeRepo.save(emp);
     }
+    
 
-    public Employee update(int id, Employee emp) {
-        Employee e = employeeRepo.findById(id).orElse(null);
-        e.setName(emp.getName());
-        e.setSalary(emp.getSalary());
-        return employeeRepo.save(e);
+    public Employee update(int id, Employee e) {
+        Employee emp = employeeRepo.findById(id).get();
+        emp.setName(e.getName());
+        emp.setSalary(e.getSalary());
+
+        if (e.getDepartment() != null) {
+            emp.setDepartment(
+                departmentRepo.findById(e.getDepartment().getId()).get()
+            );
+        }
+        return employeeRepo.save(emp);
     }
+
 
     public void delete(int id) {
         employeeRepo.deleteById(id);

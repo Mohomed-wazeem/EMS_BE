@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 import com.EmployeeManagementSystem.demo.Entity.Department;
 import com.EmployeeManagementSystem.demo.Repository.DepartmentRepository;
+
 import java.util.List;
 
 
@@ -13,8 +14,8 @@ public class DepartmentService {
 
     @Autowired
     private DepartmentRepository repo;
-
-    public List<Department> getAll() {
+    
+        public List<Department> getAll() {
         return repo.findAll();
     }
 
@@ -36,4 +37,6 @@ public class DepartmentService {
     public void delete(int id) {
         repo.deleteById(id);
     }
+    
+   
 }

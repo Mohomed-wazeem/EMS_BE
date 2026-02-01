@@ -38,11 +38,12 @@ public class EmployeeController {
     public Employee add(@RequestBody Employee e, @PathVariable int deptId) {
         return service.add(e, deptId);
     }
-
+    
     @PutMapping("/update/{id}")
     public Employee update(@PathVariable int id, @RequestBody Employee e) {
         return service.update(id, e);
     }
+
 
     @DeleteMapping("/delete/{id}")
     public void delete(@PathVariable int id) {

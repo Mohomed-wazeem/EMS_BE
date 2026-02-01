@@ -5,3 +5,5 @@ import com.EmployeeManagementSystem.demo.Entity.Employee;
 
 public interface EmployeeRepository extends JpaRepository<Employee, Integer> {}
 
+
+
